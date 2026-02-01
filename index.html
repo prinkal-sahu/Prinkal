@@ -537,10 +537,11 @@
 		<section id="contact" class="card contact-section">
 			<div class="contact-content">
 				<div class="contact-left">
-					<div class="about-badge">05</div>
+					<div class="about-badge">05
+                    </div>
 					<h2 class="contact-title">Let's build<br>something<br><span class="amazing">amazing</span></h2>
 					<p class="contact-description">
-						Whether you have a project in mind, want to discuss a collaboration, or just want to say hello — I'd love to hear from you.
+						Whether you have a project in mind, want to discuss a new <strong>Job Opportunity</strong>, or just want to say hello — I'd love to hear from you.
 					</p>
 					<a href="mailto:prinkal.ggn@gmail.com" class="contact-cta-btn">
 						✈️ Send me a message
@@ -561,7 +562,7 @@
 							<p>+91 8791287415</p>
 						</a>
 
-						<a href="https://linkedin.com/in/prinkal-sahu-912415103" target="_blank" rel="noopener" class="contact-icon-card">
+						<a href="https://linkedin.com/in/prinkal-kumar-912415103" target="_blank" rel="noopener" class="contact-icon-card">
 							<div class="icon-bg">🔗</div>
 							<h4>LinkedIn</h4>
 							<p>Connect with me</p>
@@ -584,27 +585,70 @@
 		</footer>
 
 	<script>
-		document.querySelectorAll('#projects details.project').forEach((detail) => {
+		// Project accordion toggle
+		document.querySelectorAll('#projects details.project-card').forEach((detail) => {
 			detail.addEventListener('toggle', () => {
 				if (!detail.open) return;
-				document.querySelectorAll('#projects details.project').forEach((other) => {
+				document.querySelectorAll('#projects details.project-card').forEach((other) => {
 					if (other !== detail) other.removeAttribute('open');
 				});
 			});
 		});
 
+		// Mobile menu toggle
 		const menuToggle = document.getElementById('menuToggle');
 		const navMenu = document.getElementById('navMenu');
 		menuToggle?.addEventListener('click', () => {
 			navMenu.classList.toggle('open');
 			menuToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
 		});
-		navMenu?.querySelectorAll('a').forEach(link => {
+
+		// Close menu on link click
+		navMenu?.querySelectorAll('.nav-link').forEach(link => {
 			link.addEventListener('click', () => {
 				navMenu.classList.remove('open');
 				menuToggle.setAttribute('aria-expanded', 'false');
 			});
 		});
+
+		// Active section highlighting on scroll
+		const sections = document.querySelectorAll('section[id]');
+		const navLinks = document.querySelectorAll('.nav-link');
+
+		const observerOptions = {
+			threshold: 0.1,
+			rootMargin: '-80px 0px -80% 0px'
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			// Find the section that is most visible
+			let mostVisibleEntry = entries[0];
+			
+			entries.forEach(entry => {
+				if (entry.intersectionRatio > mostVisibleEntry.intersectionRatio) {
+					mostVisibleEntry = entry;
+				}
+			});
+
+			if (mostVisibleEntry.isIntersecting) {
+				const id = mostVisibleEntry.target.getAttribute('id');
+				const link = document.querySelector(`.nav-link[href="#${id}"]`);
+				
+				if (link) {
+					navLinks.forEach(l => l.classList.remove('active'));
+					link.classList.add('active');
+				}
+			}
+		}, observerOptions);
+
+		sections.forEach(section => {
+			if (section.id) {
+				observer.observe(section);
+			}
+		});
+
+		// Smooth scroll behavior
+		document.documentElement.style.scrollBehavior = 'smooth';
 	</script>
 </body>
 </html>
