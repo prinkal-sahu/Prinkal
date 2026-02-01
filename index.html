@@ -94,8 +94,10 @@
 			<div class="hero-content">
 				<div class="hero-left">
 					<div class="availability-badge">✨ Available for opportunities</div>
-					<h2 class="hero-title">Hi, I'm <span class="gradient">Prinkal Kumar</span></h2>
-					<p class="hero-subtitle">Android Lead Engineer</p>
+					<h2 class="hero-title">Hi, I'm<br><span class="gradient">Prinkal Kumar</span></h2>
+					<p class="hero-subtitle">
+						<span class="subtitle-text">Android Specialist</span>
+					</p>
 					<p class="hero-description">
 						Crafting pixel-perfect, high-performance mobile experiences for Android with 9+ years of expertise.
 					</p>
@@ -611,6 +613,60 @@
 			});
 		});
 
+		// Typing effect animation for subtitle
+		const subtitles = [
+			'Android Specialist',
+			'Mobile Developer',
+			'Team Lead',
+            'React Native Developer',
+			'Kotlin Multiplatform Developer',
+            'GoLang Enthusiast'
+		];
+
+		const subtitleElement = document.querySelector('.subtitle-text');
+		let subtitleIndex = 0;
+		let charIndex = 0;
+		let isTyping = true;
+
+		async function typeText(text, speed = 100) {
+			for (let i = 0; i < text.length; i++) {
+				subtitleElement.textContent = text.substring(0, i + 1);
+				await new Promise(resolve => setTimeout(resolve, speed));
+			}
+		}
+
+		async function eraseText(speed = 50) {
+			const currentText = subtitleElement.textContent;
+			for (let i = currentText.length; i > 0; i--) {
+				subtitleElement.textContent = currentText.substring(0, i - 1);
+				await new Promise(resolve => setTimeout(resolve, speed));
+			}
+		}
+
+		async function rotateSubtitle() {
+			while (true) {
+				const currentSubtitle = subtitles[subtitleIndex];
+				
+				// Type the text
+				await typeText(currentSubtitle, 80);
+				
+				// Wait before erasing
+				await new Promise(resolve => setTimeout(resolve, 2000));
+				
+				// Erase the text
+				await eraseText(50);
+				
+				// Wait before typing next
+				await new Promise(resolve => setTimeout(resolve, 300));
+				
+				// Move to next subtitle
+				subtitleIndex = (subtitleIndex + 1) % subtitles.length;
+			}
+		}
+
+		// Start the typing animation
+		rotateSubtitle();
+
 		// Active section highlighting on scroll
 		const sections = document.querySelectorAll('section[id]');
 		const navLinks = document.querySelectorAll('.nav-link');
@@ -621,7 +677,6 @@
 		};
 
 		const observer = new IntersectionObserver((entries) => {
-			// Find the section that is most visible
 			let mostVisibleEntry = entries[0];
 			
 			entries.forEach(entry => {
