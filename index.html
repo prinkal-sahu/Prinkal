@@ -44,225 +44,544 @@
 		body { background: var(--bg); color: var(--text); }
 		.card { background: var(--card); }
 		a { color: var(--accent); }
+		.menu-toggle {
+			display: none;
+			background: none;
+			border: none;
+			color: var(--text);
+			font-size: 1.5rem;
+			cursor: pointer;
+			padding: 8px;
+		}
+		@media (max-width: 768px) {
+			.menu-toggle { display: block; }
+			.nav {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+				flex-direction: column;
+				background: var(--card);
+				border-top: 1px solid #1f2937;
+				padding: 12px;
+				gap: 8px;
+			}
+			.nav.open { display: flex; }
+		}
 	</style>
 	<!-- README now plain Markdown -->
 </head>
 <body>
 	<header class="site-header">
-		<div class="container">
-			<h1>Prinkal Kumar</h1>
-			<p class="tagline">Senior Android Developer</p>
-			<div class="subdetails">
-				<p>✉️ prinkal.ggn@gmail.com</p>
-				<p>📞 8791287415</p>
-				<p>📍 New Delhi, India</p>
-				<p>🔗 <a href="https://linkedin.com/in/prinkal-kumar-912415103">linkedin.com/in/prinkal-kumar-912415103</a></p>
+		<div class="header-container">
+			<div class="logo">
+				<a href="#home">Prinkal</a>
 			</div>
-			<nav class="nav">
-				<a href="#about">About</a>
-				<a href="#projects">Projects</a>
-				<a href="#skills">Skills</a>
-				<a href="#contact">Contact</a>
-				<a href="#resume">Resume</a>
+			<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+			<nav class="nav" id="navMenu">
+				<a href="#about" class="nav-link">About</a>
+				<a href="#experience" class="nav-link">Experience</a>
+				<a href="#projects" class="nav-link">Projects</a>
+				<a href="#skills" class="nav-link">Skills</a>
+				<a href="#contact" class="nav-link">Contact</a>
 			</nav>
 		</div>
 	</header>
 
-	<main class="container">
-		<section id="about" class="card">
-			<h2>About</h2>
-			<p>
-				Highly experienced Android Lead Engineer with over 9 years in mobile application development, distinguished by a
-				GATE 2015 qualification. Proficient in architecting, developing, and optimizing complex software systems using
-				Android SDK, Kotlin, and Java. Deep expertise spans critical areas like SQL, Web Services APIs, and specialized
-				application domains including eCommerce, Android Auto, Android TV, Voice Assistance, and Social Media, ensuring
-				high-quality, scalable, and maintainable solutions.
-			</p>
-		</section>
-
-		<section id="projects" class="card">
-			<h2>Projects</h2>
-			<div class="grid">
-				<details class="project">
-					<summary>
-						<strong>MG Auto Project</strong>
-						<span class="meta">
-							AI voice assistance for in-vehicle commands.<br>
-							LLM-backed multi-domain knowledge queries.<br>
-							STT/TTS with context-aware responses.
-						</span>
-					</summary>
-					<div class="project-body">
-						<p>Android Auto app delivering an AI-driven voice-assistance platform for in-vehicle commands.</p>
-						<ul>
-							<li>Led development of a flagship Android Auto application delivering a robust AI-driven voice-assistance platform.</li>
-							<li>Implemented LLM-backed conversational interfaces for multi-domain knowledge queries and ML-based intent classification for safety-critical in-vehicle commands.</li>
-							<li>Enabled speech-to-text (STT), text-to-speech (TTS), and context-aware response generation to enhance hands-free driving.</li>
-						</ul>
-						<p class="meta">Android Auto • NLP • LLM • STT/TTS</p>
-					</div>
-				</details>
-
-				<details class="project">
-					<summary>
-						<strong>Jio Speaker Companion</strong>
-						<span class="meta">
-							Companion app for smart speaker devices.<br>
-							Send/receive IoT commands reliably.<br>
-							Control media streaming from the app.
-						</span>
-					</summary>
-					<div class="project-body">
-						<p>Similar to Amazon Alexa app; sends/receives commands to IoT devices and controls media streaming via the app.</p>
-						<p class="meta">IoT • Android • Media</p>
-					</div>
-				</details>
-
-				<details class="project">
-					<summary>
-						<strong>Jio SetTopBox (Android TV)</strong>
-						<span class="meta">
-							Voice-assistance module for Android TV.<br>
-							Dynamic skill queries (Weather, News).<br>
-							Hands-free control via remote mic.
-						</span>
-					</summary>
-					<div class="project-body">
-						<p>Engineered the voice-assistance module for Android TV, enabling dynamic skill queries such as Weather, News, Horoscope, and Dictionary.</p>
-						<p class="meta">Android TV • Voice Assistance • Skill Queries</p>
-					</div>
-				</details>
-
-				<details class="project">
-					<summary>
-						<strong>Samsung Clock</strong>
-						<span class="meta">
-							On-site development at Samsung India.<br>
-							New features and performance work.<br>
-							Stability fixes for a core app.
-						</span>
-					</summary>
-					<div class="project-body">
-						<p>On-site Android development at Samsung India, delivering new features, performance optimizations, and bug fixes for a major native app.</p>
-						<p class="meta">Android • Performance • Native App</p>
-					</div>
-				</details>
-
-				<details class="project">
-					<summary>
-						<strong>Arena Workflow Manager (Airbus)</strong>
-						<span class="meta">
-							Unified workflow and reporting tool.<br>
-							Time control and database access.<br>
-							AI/ML-driven ticket assignment.
-						</span>
-					</summary>
-					<div class="project-body">
-						<p>Unified tool for team management, time control, database access, and report extraction within the Arena ecosystem, including AI/ML-driven ticket assignments.</p>
-						<p class="meta">Android • AI/ML • Enterprise</p>
-					</div>
-				</details>
-
-				<details class="project">
-					<summary>
-						<strong>Social Engine App</strong>
-						<span class="meta">
-							Native Android app on SocialEngine.<br>
-							Robust APIs in Java and Kotlin.<br>
-							Reliable data exchange and sync.
-						</span>
-					</summary>
-					<div class="project-body">
-						<p>Native Android app on the SocialEngine platform; designed and maintained robust APIs in Java and Kotlin for seamless data exchange.</p>
-						<p class="meta">Android • Java • Kotlin • APIs</p>
-					</div>
-				</details>
-			</div>
-		</section>
-
-		<section id="skills" class="card">
-			<h2>Skills</h2>
-			<ul class="chips">
-				<li>Kotlin</li>
-				<li>Java</li>
-				<li>Jetpack Compose</li>
-				<li>MVVM</li>
-				<li>Coroutines</li>
-				<li>Room</li>
-				<li>Retrofit</li>
-				<li>Firebase</li>
-				<li>CI/CD</li>
-			</ul>
-
-			<h3>Frameworks &amp; Libraries</h3>
-			<ul class="chips">
-				<li>Android SDK</li>
-				<li>Jetpack Compose</li>
-				<li>Coroutines</li>
-				<li>RxJava</li>
-				<li>Dagger/Hilt</li>
-                <li>Retrofit</li>
-				<li>Data Binding</li>
-				<li>Navigation component</li>
-				<li>Work Manager</li>
-				<li>Room</li>
-			</ul>
-
-			<h3>Tools</h3>
-			<ul class="chips">
-				<li>Android Studio</li>
-				<li>VS Code</li>
-				<li>Cursor IDE</li>
-			</ul>
-
-			<h3>Programming Languages</h3>
-			<ul class="chips">
-				<li>Kotlin</li>
-				<li>Java</li>
-				<li>GoLang</li>
-                <li>React</li>
-
-			</ul>
-
-			<h3>Hybrid Framework</h3>
-			<ul class="chips">
-				<li>React Native</li>
-				<li>Compose MultiPlatform</li>
-            <li>Kotlin MultiPlatform</li>
-			</ul>
-		</section>
-
-		<section id="contact" class="card">
-			<h2>Contact</h2>
-			<ul class="contact">
-				<li><a href="mailto:prinkal.ggn@gmail.com">prinkal.ggn@gmail.com</a></li>
-				<li><a href="tel:+918791287415">+91 87912 87415</a></li>
-				<li><a href="https://linkedin.com/in/prinkal-sahu-912415103">LinkedIn</a></li>
-			</ul>
-		</section>
-
-		<section id="resume" class="card">
-			<h2>Resume</h2>
-			<p>
-				<a href="Prinkal_Resume_Android_exp_9_years_2026.pdf" target="_blank" rel="noopener">
-					Download PDF
-				</a>
-			</p>
-			<div class="resume-preview">
-				<iframe
-					src="Prinkal_Resume_Android_exp_9_years_2026.pdf"
-					title="Resume Preview"
-					loading="lazy">
-				</iframe>
-			</div>
-		</section>
-	</main>
-
-	<footer class="site-footer">
+	<section class="hero">
 		<div class="container">
-			<span>© 2026 Prinkal Sahu</span>
+			<div class="hero-content">
+				<div class="hero-left">
+					<div class="availability-badge">✨ Available for opportunities</div>
+					<h2 class="hero-title">Hi, I'm <span class="gradient">Prinkal Kumar</span></h2>
+					<p class="hero-subtitle">Android Lead Engineer</p>
+					<p class="hero-description">
+						Crafting pixel-perfect, high-performance mobile experiences for Android with 9+ years of expertise.
+					</p>
+					<div class="hero-buttons">
+						<a href="Prinkal_Resume_Android_exp_9_years_2026.pdf" class="btn btn-primary" target="_blank">
+							Download CV ↓
+						</a>
+						<a href="#projects" class="btn btn-secondary">View My Work</a>
+					</div>
+					<div class="hero-socials">
+						<a href="https://linkedin.com/in/prinkal-kumar-912415103" title="LinkedIn">🔗</a>
+						<a href="mailto:prinkal.ggn@gmail.com" title="Email">✉️</a>
+						<a href="tel:+918791287415" title="Phone">📞</a>
+					</div>
+				</div>
+				<div class="hero-right">
+					<div class="stats-grid">
+						<div class="stat-card">
+							<div class="stat-number">9+</div>
+							<div class="stat-label">Years of Experience</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-number">6+</div>
+							<div class="stat-label">Major Projects</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-number">50+</div>
+							<div class="stat-label">Technologies</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</footer>
+	</section>
+
+	<main class="container">
+		<section id="about" class="card about-section">
+			<div class="about-header">
+				<div class="about-badge">01</div>
+				<h2>About Me</h2>
+			</div>
+			
+			<div class="about-content">
+				<div class="about-left">
+					<p class="about-intro">
+                        Highly experienced Android Engineer with over <span class="highlight">9 years of experience</span> in mobile application development, distinguished by a GATE 2015 qualification.
+					</p>
+					<p class="about-body">
+                        Proficient in architecting, developing, and optimizing complex software systems using <strong>Android SDK</strong> and <strong>Kotlin</strong>. Deep expertise spans critical areas like UI/UX implementation to Web Services APIs,backend integration and deployment, and specialized application domains including eCommerce, Android Auto, Android TV, IOT-Voice Assistance, and Social Media, ensuring high-quality, scalable, and maintainable solutions.
+					</p>
+					
+					<div class="expertise-cards">
+						<div class="expertise-card">
+							<div class="expertise-icon">💻</div>
+							<h4>Clean Code</h4>
+							<p>Best practices</p>
+						</div>
+						<div class="expertise-card">
+							<div class="expertise-icon">🏗️</div>
+							<h4>Architecture</h4>
+							<p>Scalable design</p>
+						</div>
+						<div class="expertise-card">
+							<div class="expertise-icon">⚡</div>
+							<h4>Performance</h4>
+							<p>Optimized apps</p>
+						</div>
+					</div>
+
+					<div class="tech-stack">
+						<a href="#" class="tech-tag">Android</a>
+						<a href="#" class="tech-tag">Kotlin</a>
+						<a href="#" class="tech-tag">Compose/Kotlin Multi-Platform</a>
+						<a href="#" class="tech-tag">Firebase</a>
+						<a href="#" class="tech-tag">REST APIs</a>
+					</div>
+				</div>
+
+				<div class="about-right">
+					<div class="education-section">
+						<div class="education-icon">🎓</div>
+						<h4>Education</h4>
+						<p class="education-subtitle">Academic background</p>
+
+						<div class="education-item">
+							<div class="education-marker"></div>
+							<div class="education-details">
+								<h5>Bachelor of Technology (CSE)</h5>
+								<p class="school">Radha Govind Engineering College • Meerut</p>
+								<span class="year">2015</span>
+							</div>
+						</div>
+
+						<div class="education-item">
+							<div class="education-marker"></div>
+							<div class="education-details">
+								<h5>Intermediate</h5>
+								<p class="school">G&H High School • Ranchi</p>
+								<span class="year">2011</span>
+							</div>
+						</div>
+
+						<div class="education-item">
+							<div class="education-marker"></div>
+							<div class="education-details">
+								<h5>High School</h5>
+								<p class="school">Saraswati Sishu Vidya Mandir • Ranchi</p>
+								<span class="year">2009</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="experience" class="card experience-section">
+			<div class="experience-header">
+				<div class="about-badge">02</div>
+				<h2>Work Experience</h2>
+			</div>
+
+			<div class="experience-intro">
+				<p>9+ years of professional experience building world-class Android applications.</p>
+			</div>
+
+			<div class="experience-timeline">
+				<div class="experience-item">
+					<div class="experience-date">Apr 2022 – Present</div>
+					<div class="experience-marker">
+						<div class="marker-dot"></div>
+						<div class="marker-line"></div>
+					</div>
+					<div class="experience-details">
+						<div class="experience-badge">Current Role</div>
+						<h3>Lead Engineer</h3>
+						<p class="company">Radisys • Gurugram</p>
+						<p class="description">
+							Leading engineering teams on core Android and cross-platform mobile applications. Responsible for architecture decisions, code quality, and team mentorship.
+						</p>
+						<div class="experience-tech">
+							<span class="tech-chip">Android</span>
+							<span class="tech-chip">Leadership</span>
+							<span class="tech-chip">Architecture</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="experience-item">
+					<div class="experience-date">Mar 2019 – Mar 2022</div>
+					<div class="experience-marker">
+						<div class="marker-dot"></div>
+						<div class="marker-line"></div>
+					</div>
+					<div class="experience-details">
+						<h3>Senior Software Engineer</h3>
+						<p class="company">Capgemini Engineering • Gurugram</p>
+						<p class="description">
+							Developed and maintained enterprise-level Android applications. Focused on performance optimization, code architecture, and delivering scalable solutions for global clients.
+						</p>
+						<div class="experience-tech">
+							<span class="tech-chip">Android</span>
+							<span class="tech-chip">Kotlin</span>
+							<span class="tech-chip">Enterprise</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="experience-item">
+					<div class="experience-date">Nov 2017 – Feb 2019</div>
+					<div class="experience-marker">
+						<div class="marker-dot"></div>
+						<div class="marker-line"></div>
+					</div>
+					<div class="experience-details">
+						<h3>Software Engineer</h3>
+						<p class="company">Ahead Websoft Technologies • Gurugram</p>
+						<p class="description">
+							Built feature-rich Android applications with focus on user experience and API integration. Worked on multiple projects involving real-time data synchronization and complex UI implementations.
+						</p>
+						<div class="experience-tech">
+							<span class="tech-chip">Android</span>
+							<span class="tech-chip">Java</span>
+							<span class="tech-chip">APIs</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="experience-item">
+					<div class="experience-date">Oct 2015 – Oct 2017</div>
+					<div class="experience-marker">
+						<div class="marker-dot"></div>
+					</div>
+					<div class="experience-details">
+						<h3>Associate Engineer</h3>
+						<p class="company">MobiFly • Gurugram</p>
+						<p class="description">
+							Started my professional career developing Android applications. Gained expertise in core Android development, lifecycle management, and best practices in mobile development.
+						</p>
+						<div class="experience-tech">
+							<span class="tech-chip">Android</span>
+							<span class="tech-chip">Java</span>
+							<span class="tech-chip">Mobile Dev</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects" class="card projects-section">
+			<div class="projects-header">
+				<div class="about-badge">03</div>
+				<h2>Featured Projects</h2>
+			</div>
+
+			<div class="projects-intro">
+				<p>Showcase of my best work across Android, AI/ML integration, and IoT platforms.</p>
+			</div>
+
+			<div class="projects-grid">
+				<details class="project-card">
+					<summary>
+						<div class="project-icon">🚗</div>
+						<div class="project-header-info">
+							<strong>MG Auto Project</strong>
+							<span class="project-meta">Android Auto • AI/ML</span>
+						</div>
+					</summary>
+					<div class="project-body">
+						<p class="project-summary">Android Auto app delivering an AI-driven voice-assistance platform for in-vehicle commands.</p>
+						<ul>
+							<li>Led development of a flagship Android Auto application with robust AI-driven voice-assistance.</li>
+							<li>Implemented LLM-backed conversational interfaces for multi-domain knowledge queries.</li>
+							<li>Enabled STT/TTS with context-aware response generation for hands-free driving.</li>
+						</ul>
+						<div class="project-tech">
+							<span class="tech-badge">Android Auto</span>
+							<span class="tech-badge">NLP</span>
+							<span class="tech-badge">LLM</span>
+							<span class="tech-badge">STT/TTS</span>
+						</div>
+					</div>
+				</details>
+
+				<details class="project-card">
+					<summary>
+						<div class="project-icon">🔊</div>
+						<div class="project-header-info">
+							<strong>Jio Speaker Companion</strong>
+							<span class="project-meta">IoT • Android</span>
+						</div>
+					</summary>
+					<div class="project-body">
+						<p class="project-summary">Companion app for smart speaker devices with IoT control and media streaming.</p>
+						<ul>
+							<li>Send/receive commands to IoT devices reliably.</li>
+							<li>Control media streaming from the app.</li>
+							<li>Similar architecture to Amazon Alexa app.</li>
+						</ul>
+						<div class="project-tech">
+							<span class="tech-badge">IoT</span>
+							<span class="tech-badge">Android</span>
+							<span class="tech-badge">Media</span>
+						</div>
+					</div>
+				</details>
+
+				<details class="project-card">
+					<summary>
+						<div class="project-icon">📺</div>
+						<div class="project-header-info">
+							<strong>Jio SetTopBox</strong>
+							<span class="project-meta">Android TV • Voice</span>
+						</div>
+					</summary>
+					<div class="project-body">
+						<p class="project-summary">Voice-assistance module for Android TV with dynamic skill queries.</p>
+						<ul>
+							<li>Engineered voice-assistance module for Android TV.</li>
+							<li>Dynamic skill queries: Weather, News, Horoscope, Dictionary.</li>
+							<li>Hands-free control via remote microphone.</li>
+						</ul>
+						<div class="project-tech">
+							<span class="tech-badge">Android TV</span>
+							<span class="tech-badge">Voice Assistance</span>
+							<span class="tech-badge">Skill Queries</span>
+						</div>
+					</div>
+				</details>
+
+				<details class="project-card">
+					<summary>
+						<div class="project-icon">⏰</div>
+						<div class="project-header-info">
+							<strong>Samsung Clock</strong>
+							<span class="project-meta">Samsung • Native App</span>
+						</div>
+					</summary>
+					<div class="project-body">
+						<p class="project-summary">On-site development at Samsung India for native Clock application.</p>
+						<ul>
+							<li>New feature implementation and design.</li>
+							<li>Performance optimizations and stability fixes.</li>
+							<li>Deployed to millions of devices.</li>
+						</ul>
+						<div class="project-tech">
+							<span class="tech-badge">Android</span>
+							<span class="tech-badge">Performance</span>
+							<span class="tech-badge">Native App</span>
+						</div>
+					</div>
+				</details>
+
+				<details class="project-card">
+					<summary>
+						<div class="project-icon">⚙️</div>
+						<div class="project-header-info">
+							<strong>Arena Workflow Manager</strong>
+							<span class="project-meta">Airbus • Enterprise</span>
+						</div>
+					</summary>
+					<div class="project-body">
+						<p class="project-summary">Unified workflow management tool for Airbus ecosystem.</p>
+						<ul>
+							<li>Team management and time control functionalities.</li>
+							<li>Database access and report extraction.</li>
+							<li>AI/ML-driven automated ticket assignments.</li>
+						</ul>
+						<div class="project-tech">
+							<span class="tech-badge">Android</span>
+							<span class="tech-badge">AI/ML</span>
+							<span class="tech-badge">Enterprise</span>
+						</div>
+					</div>
+				</details>
+
+				<details class="project-card">
+					<summary>
+						<div class="project-icon">🌐</div>
+						<div class="project-header-info">
+							<strong>Social Engine App</strong>
+							<span class="project-meta">SocialEngine • APIs</span>
+						</div>
+					</summary>
+					<div class="project-body">
+						<p class="project-summary">Native Android app on SocialEngine platform with robust APIs.</p>
+						<ul>
+							<li>Designed and maintained robust APIs in Java and Kotlin.</li>
+							<li>Seamless data exchange and synchronization.</li>
+							<li>1000+ downloads on Google Play Store.</li>
+						</ul>
+						<div class="project-tech">
+							<span class="tech-badge">Android</span>
+							<span class="tech-badge">Java</span>
+							<span class="tech-badge">Kotlin</span>
+							<span class="tech-badge">APIs</span>
+						</div>
+					</div>
+				</details>
+			</div>
+		</section>
+
+		<section id="skills" class="card skills-section">
+			<div class="skills-header">
+				<div class="about-badge">04</div>
+				<h2>Skills & Expertise</h2>
+			</div>
+
+			<div class="skills-intro">
+				<p>A comprehensive set of technologies and frameworks I've mastered over 9+ years of development.</p>
+			</div>
+
+			<div class="skills-grid">
+				<div class="skill-category">
+					<div class="category-icon">💻</div>
+					<h3>Core Skills</h3>
+					<ul class="chips">
+						<li>Kotlin</li>
+						<li>Java</li>
+						<li>Jetpack Compose</li>
+						<li>MVVM</li>
+						<li>Coroutines</li>
+						<li>Room</li>
+						<li>Retrofit</li>
+						<li>Firebase</li>
+						<li>CI/CD</li>
+					</ul>
+				</div>
+
+				<div class="skill-category">
+					<div class="category-icon">🏗️</div>
+					<h3>Frameworks & Libraries</h3>
+					<ul class="chips">
+						<li>Android SDK</li>
+						<li>Jetpack Compose</li>
+						<li>Coroutines</li>
+						<li>RxJava</li>
+						<li>Dagger/Hilt</li>
+						<li>Retrofit</li>
+						<li>Data Binding</li>
+						<li>Navigation component</li>
+						<li>Work Manager</li>
+						<li>Room</li>
+					</ul>
+				</div>
+
+				<div class="skill-category">
+					<div class="category-icon">🛠️</div>
+					<h3>Tools</h3>
+					<ul class="chips">
+						<li>Android Studio</li>
+						<li>VS Code</li>
+						<li>Cursor IDE</li>
+					</ul>
+				</div>
+
+				<div class="skill-category">
+					<div class="category-icon">📝</div>
+					<h3>Programming Languages</h3>
+					<ul class="chips">
+						<li>Kotlin</li>
+						<li>Java</li>
+						<li>GoLang</li>
+						<li>React</li>
+					</ul>
+				</div>
+
+				<div class="skill-category">
+					<div class="category-icon">📱</div>
+					<h3>Hybrid Frameworks</h3>
+					<ul class="chips">
+						<li>React Native</li>
+						<li>Compose MultiPlatform</li>
+						<li>Kotlin MultiPlatform</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="card contact-section">
+			<div class="contact-content">
+				<div class="contact-left">
+					<div class="about-badge">05</div>
+					<h2 class="contact-title">Let's build<br>something<br><span class="amazing">amazing</span></h2>
+					<p class="contact-description">
+						Whether you have a project in mind, want to discuss a collaboration, or just want to say hello — I'd love to hear from you.
+					</p>
+					<a href="mailto:prinkal.ggn@gmail.com" class="contact-cta-btn">
+						✈️ Send me a message
+					</a>
+				</div>
+
+				<div class="contact-right">
+					<div class="contact-cards-grid">
+						<a href="mailto:prinkal.ggn@gmail.com" class="contact-icon-card">
+							<div class="icon-bg">✉️</div>
+							<h4>Email</h4>
+							<p>prinkal.ggn@gmail.com</p>
+						</a>
+
+						<a href="tel:+918791287415" class="contact-icon-card">
+							<div class="icon-bg">📞</div>
+							<h4>Phone</h4>
+							<p>+91 8791287415</p>
+						</a>
+
+						<a href="https://linkedin.com/in/prinkal-sahu-912415103" target="_blank" rel="noopener" class="contact-icon-card">
+							<div class="icon-bg">🔗</div>
+							<h4>LinkedIn</h4>
+							<p>Connect with me</p>
+						</a>
+
+						<div class="contact-icon-card info-only">
+							<div class="icon-bg">📍</div>
+							<h4>Location</h4>
+							<p>New Delhi, India</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="site-footer">
+			<div class="container">
+				<span>©2026 Prinkal Kumar</span>
+			</div>
+		</footer>
 
 	<script>
 		document.querySelectorAll('#projects details.project').forEach((detail) => {
@@ -273,7 +592,19 @@
 				});
 			});
 		});
-	
+
+		const menuToggle = document.getElementById('menuToggle');
+		const navMenu = document.getElementById('navMenu');
+		menuToggle?.addEventListener('click', () => {
+			navMenu.classList.toggle('open');
+			menuToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+		});
+		navMenu?.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				navMenu.classList.remove('open');
+				menuToggle.setAttribute('aria-expanded', 'false');
+			});
+		});
 	</script>
 </body>
 </html>
