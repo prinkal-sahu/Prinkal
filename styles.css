@@ -268,6 +268,31 @@ a { color: var(--accent); }
 	}
 }
 
+/* Global gradient for all Remix icons */
+i[class^="ri-"],
+i[class*=" ri-"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #38bdf8, #10b981);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	color: transparent;
+	transition: background 0.4s ease, transform 0.2s ease;
+}
+
+/* Stronger gradient on common hover states */
+.hero-socials a:hover i,
+.expertise-card:hover .expertise-icon i,
+.skill-category:hover .category-icon i,
+.contact-icon-card:hover .icon-bg i,
+.project-card:hover .project-icon i {
+	background: linear-gradient(135deg, #a855f7, #f97316);
+	transform: translateY(-1px);
+    background-clip: text;
+}
+
 .hero-subtitle {
 	font-size: 1.5rem;
 	color: var(--accent);
@@ -449,7 +474,7 @@ a { color: var(--accent); }
 }
 
 .about-section {
-	padding: 60px 40px;
+	padding: 40px;
 }
 
 .about-header {
@@ -571,6 +596,7 @@ a { color: var(--accent); }
 .education-section h4 {
 	margin: 0 0 4px 0;
 	font-size: 1.1rem;
+	font-weight: 600;
 }
 
 .education-subtitle {
@@ -608,6 +634,7 @@ a { color: var(--accent); }
 .education-details h5 {
 	margin: 0 0 4px 0;
 	font-size: 0.95rem;
+	font-weight: 600;
 }
 
 .education-details .school {
@@ -621,6 +648,7 @@ a { color: var(--accent); }
 	color: var(--accent);
 	font-size: 0.8rem;
 	margin-top: 4px;
+	font-weight: 500;
 }
 
 .projects-section {
